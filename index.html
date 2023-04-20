@@ -29,17 +29,40 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>charityflow</title>
+  <title>CharityFlow</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+
+    body {
+			background-color: green;
+      overflow: hidden;
+		}
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex; /* Default Axis is X*/
+      justify-content: center; /* Main Axis */
+      align-items: center; /* Cross Axis */
+    }      .indicator{
+      width: 50vw;
+    }
+
+    .indicator {
+      width: 50vw;
+    }
+  </style>
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '1747684192';
+    var serviceWorkerVersion = '3499489766';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <div id="loading_indicator" class="container">
+    <img class="indicator" src="./assets/loadinggif.gif"/>
+  </div>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -54,6 +77,16 @@
         }
       });
     });
+  </script>
+  <script>
+    window.onload = function(){
+      setTimeout(function(){
+        var loadingindicator = document.getElementById("loading_indicator");
+        if (loadingindicator){
+          loadingindicator.remove();
+        }
+      },10000)
+    }
   </script>
 </body>
 </html>
